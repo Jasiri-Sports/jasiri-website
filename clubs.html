@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jasiri — Our Sports Clubs</title>
+<link rel="stylesheet" href="assets/brand.css" />
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+  .club { padding: 96px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 80px; }
+  .club .cg { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .club:nth-child(even) .cg { direction: rtl; }
+  .club:nth-child(even) .cg > * { direction: ltr; }
+  .club .media { position: relative; aspect-ratio: 4/5; border-radius: 18px; overflow: hidden; background: var(--ice); }
+  .club .media img { width: 100%; height: 100%; object-fit: cover; }
+  .club .media.ph { display: grid; place-items: center; }
+  .club .media.ph span { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute2); }
+  .club .media .standin { position: absolute; left: 14px; bottom: 14px; z-index: 2; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: rgba(6,6,8,0.72); backdrop-filter: blur(6px); padding: 6px 11px; border-radius: 7px; border: 1px solid rgba(255,255,255,0.16); }
+  .club .media .standin b { color: var(--fuchsia); font-weight: 700; }
+  .club .sport { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .club h2 { font-size: clamp(32px,3.6vw,52px); font-weight: 680; letter-spacing: -0.025em; margin-top: 12px; }
+  .club p { font-size: 17px; color: var(--mute); line-height: 1.6; margin-top: 18px; max-width: 560px; }
+  .roster { margin-top: 24px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .roster span { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mute); border: 1px solid var(--line); border-radius: 999px; padding: 7px 13px; }
+  .club .lockedin { color: var(--fuchsia); font-weight: 600; }
+</style>
+<link rel="stylesheet" href="assets/theme-stadium.css" />
+  <link rel="stylesheet" href="assets/stadium-chrome.css" />
+</head>
+<body>
+<div data-site-header data-active="clubs"></div>
+
+<section class="phero dark">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Home</a><span class="sep">/</span>Our Sports Clubs</div>
+    <h1>We don't just build the platform.<br><span style="color:var(--aero)">We play the game.</span></h1>
+    <p class="psub">Jasiri fields competitive clubs across the region — elite athleticism, precise execution, and a professional approach to dedication.</p>
+    <div class="phero-actions" style="gap:10px">
+      <a href="#mens-basketball" class="pill" style="background:rgba(255,255,255,0.08);color:#fff">Men's Basketball</a>
+      <a href="#womens-basketball" class="pill" style="background:rgba(255,255,255,0.08);color:#fff">Women's Basketball</a>
+      <a href="#mens-rugby" class="pill" style="background:rgba(255,255,255,0.08);color:#fff">Men's Rugby</a>
+      <a href="#womens-rugby" class="pill" style="background:rgba(255,255,255,0.08);color:#fff">Women's Rugby</a>
+    </div>
+  </div>
+</section>
+
+<section class="club" id="mens-basketball">
+  <div class="wrap"><div class="cg">
+    <div class="reveal"><span class="sport">Men's Basketball</span><h2>The Jasiri Generals.</h2><p>Jasiri Men's Basketball represents elite athleticism and precise execution. We play with relentless energy, aiming to set the standard for tactical play and physical dominance in the Kenyan and regional leagues. We don't just shoot — we dominate the paint. <span class="lockedin">#LockedIn</span></p><div class="roster"><span>Coaches · bios TBD</span><span>Roster · headshots TBD</span></div></div>
+    <div class="media reveal" data-delay="120"><img src="assets/img/jersey-trio.jpg" alt="Jasiri Generals men's basketball squad in pink-and-black jerseys" /></div>
+  </div></div>
+</section>
+
+<section class="club" id="womens-basketball">
+  <div class="wrap"><div class="cg">
+    <div class="reveal"><span class="sport">Women's Basketball</span><h2>Smart. Resilient. Explosive.</h2><p>The Jasiri Women's Basketball program is the epitome of smart, resilient performance — balancing ferocious defense with explosive offensive transition. We're building the next generation of WNBA and BAL athletes from Nairobi. The pathway is clear.</p><div class="roster"><span>Coaches · bios TBD</span><span>Roster · headshots TBD</span></div><a href="contact.html#inquiries" class="btn btn-primary" style="margin-top:24px">Interested in building with us? &rarr;</a></div>
+    <div class="media reveal" data-delay="120"><img src="assets/img/women-pair.jpg" alt="Two Jasiri women's basketball players courtside" /></div>
+  </div></div>
+</section>
+
+<section class="club" id="mens-rugby">
+  <div class="wrap"><div class="cg">
+    <div class="reveal"><span class="sport">Men's Rugby</span><h2>Discipline and dominance, defined.</h2><p>Jasiri Men's Rugby brings the full weight of physical performance to the pitch. We are tacticians of the scrum, masters of the breakdown, and relentless in the tackle. Our aim: regional championships and international mobility.</p><div class="roster"><span>Coaches · bios TBD</span><span>Roster · headshots TBD</span></div><a href="contact.html#inquiries" class="btn btn-primary" style="margin-top:24px">Interested in building with us? &rarr;</a></div>
+    <div class="media reveal" data-delay="120"><img src="assets/img/man-laces-2.jpg" alt="Jasiri athlete lacing up courtside" /><span class="standin">Stand-in &middot; <b>rugby photo to come</b></span></div>
+  </div></div>
+</section>
+
+<section class="club" id="womens-rugby">
+  <div class="wrap"><div class="cg">
+    <div class="reveal"><span class="sport">Women's Rugby</span><h2>Courage and endurance.</h2><p>The Jasiri Women's Rugby team exemplifies courage and athletic endurance — a unified force playing a physical, fast, high-IQ game that pushes the boundaries of the sport. We play without hesitation, <span class="lockedin">#LockedIn</span> to every second on the clock.</p><div class="roster"><span>Coaches · bios TBD</span><span>Roster · headshots TBD</span></div><a href="contact.html#inquiries" class="btn btn-primary" style="margin-top:24px">Interested in building with us? &rarr;</a></div>
+    <div class="media reveal" data-delay="120"><img src="assets/img/woman-bw-2.jpg" alt="Jasiri athlete courtside" /><span class="standin">Stand-in &middot; <b>rugby photo to come</b></span></div>
+  </div></div>
+</section>
+
+<section class="block cta-band">
+  <div class="wrap">
+    <h2>Locked in. Game on.</h2>
+    <p>Want to train, compete, or build with a Jasiri club? We'd love to hear from you.</p>
+    <a href="contact.html#inquiries" class="btn btn-light">Get in touch &rarr;</a>
+  </div>
+</section>
+
+<div data-site-footer></div>
+<script src="assets/reveal.js"></script>
+<script src="partials.js"></script>
+</body>
+</html>

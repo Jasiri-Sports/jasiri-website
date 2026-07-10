@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jasiri — The Operating System for Sport in Africa</title>
+<link rel="stylesheet" href="assets/brand.css" />
+<link rel="stylesheet" href="assets/stadium-chrome.css" />
+<link rel="stylesheet" href="assets/stadium.css" />
+<style>
+  /* HERO */
+  .hero { position: relative; min-height: 92vh; display: flex; align-items: flex-end; overflow: hidden; border-bottom: 1px solid var(--sb-line); }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 26%; filter: contrast(1.08) saturate(1.05); }
+  .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,5,7,0.55) 0%, rgba(5,5,7,0.15) 32%, rgba(5,5,7,0.82) 78%, var(--sb-bg) 100%); }
+  .hero-bg::before { content: ""; position: absolute; inset: 0; z-index: 1; background-image: linear-gradient(var(--sb-line) 1px, transparent 1px), linear-gradient(90deg, var(--sb-line) 1px, transparent 1px); background-size: 100% 25%, 25% 100%; opacity: 0.5; }
+  .hero-in { position: relative; z-index: 2; width: 100%; padding-bottom: 56px; }
+  .hero .toprow { display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid var(--sb-line2); padding-top: 14px; margin-bottom: 40px; }
+  .hero .toprow span { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sb-dim); }
+  .hero .sub { margin-top: 28px; max-width: 600px; font-size: 19px; color: #D6D6E0; }
+  .hero-actions { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* WHY */
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .why p { font-size: 20px; line-height: 1.6; color: var(--sb-dim); }
+  .why p + p { margin-top: 22px; }
+  .why p strong { color: #fff; font-weight: 600; }
+  .why .stamp { font-weight: 800; font-size: clamp(30px,3.4vw,46px); letter-spacing: -0.03em; text-transform: uppercase; line-height: 1.05; }
+
+  /* NETWORK rows */
+  .net-rows { margin-top: 56px; border-top: 1px solid var(--sb-line2); }
+  .nrow { display: grid; grid-template-columns: 90px 1fr 1.5fr auto; gap: 28px; align-items: center; padding: 30px 8px; border-bottom: 1px solid var(--sb-line); transition: background .2s; }
+  .nrow:hover { background: var(--sb-bg2); }
+  .nrow .nn { font-family: var(--font-mono); font-size: 13px; color: var(--sb-cob); }
+  .nrow h3 { font-weight: 800; font-size: clamp(24px,2.4vw,34px); text-transform: uppercase; letter-spacing: -0.02em; }
+  .nrow p { font-size: 15.5px; color: var(--sb-dim); }
+  .nrow .arr { font-size: 22px; color: var(--sb-dim); transition: color .2s, transform .2s; }
+  .nrow:hover .arr { color: var(--sb-fuk); transform: translateX(6px); }
+
+  /* PRODUCTS */
+  .prods { display: grid; grid-template-columns: 1fr 1fr; }
+  .prods .pb { position: relative; min-height: 560px; display: flex; flex-direction: column; justify-content: flex-end; padding: 44px; overflow: hidden; border-right: 1px solid var(--sb-line); }
+  .prods .pb:last-child { border-right: none; }
+  .prods .pb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.42; filter: grayscale(0.3) contrast(1.1); transition: opacity .35s, transform .35s; }
+  .prods .pb:hover img { opacity: 0.6; transform: scale(1.04); }
+  .prods .pb::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, transparent 30%, rgba(5,5,7,0.9)); }
+  .prods .pb .pc { position: relative; z-index: 2; }
+  .prods .pb .tag { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sb-fuk); }
+  .prods .pb h3 { font-weight: 800; font-size: clamp(38px,4.4vw,62px); text-transform: uppercase; letter-spacing: -0.03em; margin-top: 10px; line-height: 0.95; }
+  .prods .pb p { margin-top: 16px; max-width: 440px; color: #C8C8D4; font-size: 16px; }
+  .prods .pb .go { margin-top: 24px; font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; display: inline-flex; gap: 8px; }
+  .prods .pb:hover .go { color: var(--sb-fuk); }
+
+  /* IMPACT */
+  .impact-grid { margin-top: 30px; display: grid; grid-template-columns: repeat(4,1fr); }
+  .imp { padding: 30px 24px 30px 0; border-right: 1px solid var(--sb-line); }
+  .imp:last-child { border-right: none; }
+  .imp .v { font-weight: 800; font-size: clamp(56px,7vw,108px); line-height: 0.86; letter-spacing: -0.05em; }
+  .imp .v small { font-size: 0.32em; color: var(--sb-fuk); vertical-align: super; }
+  .imp .k { margin-top: 18px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sb-dim); max-width: 210px; line-height: 1.5; }
+
+  /* CTA */
+  .cta { text-align: center; border-bottom: none; }
+  .cta h2 { font-weight: 800; font-size: clamp(48px,8vw,128px); line-height: 0.9; letter-spacing: -0.045em; text-transform: uppercase; }
+  .cta p { margin: 28px auto 0; max-width: 540px; color: var(--sb-dim); font-size: 18px; }
+  .cta .sb-btn { margin-top: 38px; }
+
+  @media (max-width: 960px) {
+    .why-grid, .prods, .impact-grid { grid-template-columns: 1fr; }
+    .prods .pb { border-right: none; border-bottom: 1px solid var(--sb-line); min-height: 460px; }
+    .impact-grid .imp { border-right: none; border-bottom: 1px solid var(--sb-line); padding-right: 0; }
+  }
+  @media (max-width: 640px) {
+    .hero .toprow { flex-direction: column; gap: 6px; }
+    .nrow { grid-template-columns: 44px 1fr auto; gap: 14px; }
+    .nrow p { display: none; }
+    .prods .pb { padding: 32px 22px; }
+  }
+</style>
+</head>
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" fill="#050507"/>
+  <text x="50" y="60" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#fff" text-anchor="middle" letter-spacing="-2">J</text>
+</svg>
+</template>
+<body class="sb" data-screen-label="Home">
+<div data-site-header data-active="home"></div>
+
+<!-- HERO -->
+<section class="hero" data-screen-label="Home · Hero">
+  <div class="hero-bg"><img src="assets/img/man-hoop.jpg" alt="Jasiri athlete extending a basketball toward the camera" /></div>
+  <div class="hero-in">
+    <div class="sb-wrap">
+      <div class="toprow"><span>Sports Technology</span><span>Nairobi / Kigali / Global</span><span>EST. 2026 &middot; #LockedIn</span></div>
+      <h1 class="sb-mega">The Operating<br>System for <span class="pink">Sport</span><br><span class="sb-out">in Africa.</span></h1>
+      <p class="sub">Connecting athletes, clubs, facilities, leagues, scouts, and communities through data, technology, and culture.</p>
+      <div class="hero-actions">
+        <a href="contact.html#community" class="sb-btn sb-btn-pink">Join the Community &rarr;</a>
+        <a href="what-we-do.html" class="sb-btn sb-btn-out">What we do</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="sb-ticker"><div class="sb-ticker-track">
+  <span>Leave No Doubt</span><span>Conquer the Chaos</span><span>From Grassroots to Greatness</span><span>Locked In &middot; Game On</span><span>One Movement</span>
+  <span>Leave No Doubt</span><span>Conquer the Chaos</span><span>From Grassroots to Greatness</span><span>Locked In &middot; Game On</span><span>One Movement</span>
+</div></div>
+
+<!-- WHY -->
+<section class="sb-block why">
+  <div class="sb-wrap">
+    <span class="sb-kick">Why we exist</span>
+    <div class="why-grid">
+      <div class="reveal">
+        <h2 class="sb-big">Ending the<br>Uncertainty<br><span class="pink">Tax.</span></h2>
+      </div>
+      <div class="reveal" data-delay="120">
+        <p>For too long, African sports excellence has been <strong>brilliant but invisible.</strong> Talent struggled to find visibility. Clubs managed complex ecosystems by hand. Opportunity was gatekept.</p>
+        <p>Jasiri is the connection layer. We unify the ecosystem — replacing speculation with verifiable data.</p>
+        <p class="stamp" style="margin-top:34px">No silos. No gatekeepers. <span class="pink">One arena.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NETWORK -->
+<section class="sb-block">
+  <div class="sb-wrap">
+    <span class="sb-kick">The network</span>
+    <h2 class="sb-big">Every side<br>of the game.</h2>
+    <div class="net-rows">
+      <a class="nrow reveal" href="who-we-serve.html"><span class="nn">[01]</span><h3>Athletes</h3><p>Build your verifiable resume. Own your performance data and find professional pathways.</p><span class="arr">&rarr;</span></a>
+      <a class="nrow reveal" href="imara.html"><span class="nn">[02]</span><h3>Clubs &amp; Leagues</h3><p>Modernize operations with Imara — players, schedules, facilities, CRM in one system.</p><span class="arr">&rarr;</span></a>
+      <a class="nrow reveal" href="directory.html"><span class="nn">[03]</span><h3>Scouts &amp; Agents</h3><p>A vetted, verifiable talent pipeline across Africa. Standardized metrics, total transparency.</p><span class="arr">&rarr;</span></a>
+      <a class="nrow reveal" href="contact.html#community"><span class="nn">[04]</span><h3>Communities</h3><p>Discover facilities and teams, join events, shop the culture. From the grassroots up.</p><span class="arr">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="sb-block" style="padding:0;">
+  <div class="prods">
+    <a class="pb reveal" href="directory.html">
+      <img src="assets/img/man-laces.jpg" alt="Athlete lacing up courtside" />
+      <div class="pc">
+        <span class="tag">Discover &middot; Verify &middot; Connect</span>
+        <h3>Sports<br>Directory</h3>
+        <p>The most comprehensive, verifiable database of facilities, leagues, clubs, and athletic personnel on the continent.</p>
+        <span class="go">Start browsing &rarr;</span>
+      </div>
+    </a>
+    <a class="pb reveal" data-delay="120" href="imara.html">
+      <img src="assets/img/women-pair.jpg" alt="Two Jasiri athletes on court" />
+      <div class="pc">
+        <span class="tag">Professionalize &middot; Digitise &middot; Monetise</span>
+        <h3>Imara</h3>
+        <p>The central command center for sports entities. CRM, scheduling, and analytics that turn a disorganized club into a streamlined operation.</p>
+        <span class="go">Request a demo &rarr;</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="sb-block">
+  <div class="sb-wrap">
+    <span class="sb-kick">Our impact</span>
+    <h2 class="sb-big">Beyond the<br>scoreboard.</h2>
+    <div class="impact-grid">
+      <div class="imp reveal"><div class="v"><span data-count="1000">0</span><small>+</small></div><div class="k">Athletes formalized</div></div>
+      <div class="imp reveal"><div class="v"><span data-count="50">0</span><small>+</small></div><div class="k">Clubs on Imara &middot; KE &amp; RW</div></div>
+      <div class="imp reveal"><div class="v"><span data-count="70">0</span><small>%</small></div><div class="k">Less administrative noise</div></div>
+      <div class="imp reveal"><div class="v">3<small>HQ</small></div><div class="k">Nairobi &middot; Kigali &middot; Global</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sb-block cta">
+  <div class="sb-wrap">
+    <span class="sb-kick" style="justify-content:center">Join the movement</span>
+    <h2>Wear the culture.<br>Own the <span class="pink">grind.</span></h2>
+    <p>Be first to know about new drops, cultural events, matches, and exclusive content. Stay #LockedIn.</p>
+    <a href="contact.html#community" class="sb-btn sb-btn-pink">Join the community &rarr;</a>
+  </div>
+</section>
+
+<div data-site-footer></div>
+<script src="assets/reveal.js"></script>
+<script src="partials.js"></script>
+</body>
+</html>

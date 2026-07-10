@@ -1,0 +1,51 @@
+/* ============================================================
+   JASIRI — Shared brand foundation
+   Official guidelines palette + Geist (Sparta substituted by
+   heavy Geist Sans for display, per direction).
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap");
+
+:root {
+  /* ---- Official palette ---- */
+  --cobalt:  #002FF1;
+  --fuchsia: #FF49F4;
+  --violet:  #571CC4;
+  --stealth: #000000;
+  --ice:     #E2E6FF;
+  --aero:    #A3A9FF;
+  --white:   #FFFFFF;
+
+  /* tints / supports derived from palette */
+  --ice-50:   #F2F4FF;
+  --cobalt-700: #0023B8;
+  --ink:     #08080C;
+  --ink-2:   #1A1A22;
+  --mute:    #5A5A66;
+  --mute-2:  #8E8E9A;
+
+  --font-sans: "Geist", system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: var(--font-sans); }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+h1,h2,h3,h4,h5,h6,p { margin: 0; }
+button { font-family: inherit; }
+
+::selection { background: var(--fuchsia); color: var(--white); }
+
+/* Mono micro-label used across directions (Geist Pixel stand-in) */
+.mono {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Reveal-on-scroll primitive (subtle & premium) */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }

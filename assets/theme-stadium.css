@@ -1,0 +1,64 @@
+/* ============================================================
+   JASIRI theme · STADIUM BRUTALIST (dark, aggressive)
+   Loaded AFTER site.css + page <style> for ?theme=stadium.
+   ============================================================ */
+:root {
+  --bg: #060608;
+  --bg2: #101017;
+  --line: rgba(255,255,255,0.12);
+  --line2: rgba(255,255,255,0.26);
+  --ink: #F3F3F8;
+  --ink2: #FFFFFF;
+  --mute: #A2A2B0;
+  --mute2: #6E6E7A;
+  --accent: #3C5BFF;
+  --accent2: #2540E6;
+}
+body { background: var(--bg); color: var(--ink); }
+
+/* --- nav / chrome --- */
+.nav { background: rgba(6,6,8,0.82); border-bottom-color: var(--line); }
+.nav .brand .mark img { filter: brightness(0) invert(1); }
+.nav-item > a:hover, .nav-item.active > a { color: #fff; }
+.menu { background: #101017; border-color: var(--line); box-shadow: 0 24px 60px -28px rgba(0,0,0,0.7); }
+.menu a { color: #D8D8E2; } .menu a:hover { background: rgba(255,255,255,0.05); }
+.m-drawer { background: #0c0c12; border-color: var(--line); }
+.m-drawer .md-top, .m-drawer .md-group { border-color: var(--line); }
+.m-drawer .md-group a { color: #D8D8E2; }
+
+/* --- surfaces that were white --- */
+.card, .pcard, .product, .post, .panel, .feature, .dir-card, .dash, .logo-cell, .cat,
+.kpi, .product .pin, .post .pb { background: #101017; border-color: var(--line); }
+.card .ico { background: rgba(255,255,255,0.06); color: var(--ink2); }
+.member .ph, .post .pm, .pcard .pm, .product .pim, .dir-card .bar, .dash .bar { background: #181821; }
+.product .pim .ph, .member .ph .placeholder, .logo-cell .ph { color: var(--mute2); }
+.field input, .field select, .field textarea { background: #181821; border-color: var(--line2); color: var(--ink); }
+.pill { background: rgba(255,255,255,0.06); color: #fff; }
+
+/* --- dark bands stay dark (they referenced --ink as bg) --- */
+.band-dark, .community-band, .phero.dark, .panel.dark, .shop-hero, .footer { background: #0a0a10 !important; }
+.phero { background: linear-gradient(180deg,#0e0e15,#060608); }
+.quote-band, .ticker { background: #0c0c12; }
+/* sections that set bg2 inline */
+section[style*="--bg2"] { background: #0c0c12 !important; }
+
+/* --- type: aggressive caps --- */
+h1, h2.title, .phero h1, .home-hero h1, .club h2, .feature h2, .cta-band h2,
+.shop-hero h1, .panel h2, .lrow h3 {
+  text-transform: uppercase; font-weight: 800; letter-spacing: -0.035em;
+}
+.kicker { color: var(--accent); }
+.crumb a:hover, .lrow:hover .arrow, .card .go, .pcard .pcta:hover, .menu a:hover { color: var(--accent); }
+
+/* --- buttons --- */
+.btn-ghost { color: var(--ink); border-color: var(--line2); }
+.btn-ghost:hover { background: #fff; color: #060608; }
+.btn-dark { background: var(--accent); color: #fff; }
+.btn-light { background: #fff; color: #060608; }
+
+/* --- misc --- */
+.stats { border-top-color: #fff; }
+.lrow:hover { background: linear-gradient(90deg, rgba(255,255,255,0.05), transparent); }
+.ep .play { background: var(--accent); }
+.community-band .cbg img { opacity: 0.28; }
+::selection { background: var(--fuchsia); color: #000; }

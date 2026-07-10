@@ -1,0 +1,44 @@
+/* ============================================================
+   JASIRI · STADIUM BRUTALIST — page system (primitives)
+   Loaded on the brutalist pages (home, article, product).
+   Tokens come from stadium-chrome.css (sb-* vars).
+   ============================================================ */
+body.sb { background: var(--sb-bg); color: var(--sb-txt); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+.sb a { text-decoration: none; color: inherit; }
+.sb-wrap { max-width: var(--sb-maxw); margin: 0 auto; padding: 0 36px; }
+
+/* buttons */
+.sb-btn { display: inline-flex; align-items: center; gap: 9px; padding: 15px 26px; font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; transition: all .16s; cursor: pointer; border: none; }
+.sb-btn-pink { background: var(--sb-fuk); color: #000; }
+.sb-btn-pink:hover { background: #fff; transform: translateY(-2px); }
+.sb-btn-out { border: 1px solid var(--sb-line2); color: #fff; background: transparent; }
+.sb-btn-out:hover { background: #fff; color: #000; }
+
+/* kicker / labels */
+.sb-kick { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sb-fuk); display: inline-flex; align-items: center; gap: 10px; margin-bottom: 26px; }
+.sb-kick::before { content: ""; width: 26px; height: 1px; background: var(--sb-fuk); }
+
+/* headings */
+.sb-mega { font-weight: 800; font-size: clamp(48px, 9.5vw, 158px); line-height: 0.9; letter-spacing: -0.045em; text-transform: uppercase; }
+.sb-big { font-weight: 800; font-size: clamp(38px, 6vw, 92px); line-height: 0.94; letter-spacing: -0.04em; text-transform: uppercase; }
+.pink { color: var(--sb-fuk); }
+.sb-out { -webkit-text-stroke: 2px var(--sb-txt); color: transparent; }
+
+/* sections */
+.sb-block { padding: 110px 0; border-bottom: 1px solid var(--sb-line); }
+
+/* ticker */
+.sb-ticker { border-bottom: 1px solid var(--sb-line); background: var(--sb-cob); overflow: hidden; }
+.sb-ticker-track { display: flex; white-space: nowrap; animation: sbslide 26s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .sb-ticker-track { animation: none; } }
+@keyframes sbslide { to { transform: translateX(-50%); } }
+.sb-ticker-track span { font-family: var(--font-mono); font-weight: 600; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; padding: 13px 26px; display: inline-flex; align-items: center; gap: 26px; }
+.sb-ticker-track span::after { content: "\271A"; color: var(--sb-fuk); }
+
+/* generic reveal already provided by brand.css (.reveal) */
+
+@media (max-width: 760px) {
+  .sb-wrap { padding: 0 20px; }
+  .sb-block { padding: 72px 0; }
+  .sb-mega { font-size: clamp(40px, 13vw, 78px); }
+}

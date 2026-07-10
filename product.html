@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jasiri — Pro Basketball Jersey</title>
+<link rel="stylesheet" href="assets/brand.css" />
+<link rel="stylesheet" href="assets/stadium-chrome.css" />
+<link rel="stylesheet" href="assets/stadium.css" />
+<style>
+  .pcrumb { border-bottom: 1px solid var(--sb-line); }
+  .pcrumb-in { max-width: var(--sb-maxw); margin: 0 auto; padding: 18px 36px; display: flex; gap: 9px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sb-dim); }
+  .pcrumb-in a:hover { color: var(--sb-fuk); }
+  .pcrumb-in .sep { opacity: 0.5; }
+
+  .pdp { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0; border-bottom: 1px solid var(--sb-line); }
+  .gallery { border-right: 1px solid var(--sb-line); padding: 36px; position: sticky; top: 72px; align-self: start; }
+  .gallery .main { aspect-ratio: 4/5; overflow: hidden; background: var(--sb-bg2); border: 1px solid var(--sb-line); }
+  .gallery .main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .thumbs { margin-top: 14px; display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+  .thumbs button { padding: 0; border: 1px solid var(--sb-line); overflow: hidden; aspect-ratio: 1/1; background: var(--sb-bg2); cursor: pointer; transition: border-color .16s; }
+  .thumbs button.active { border-color: var(--sb-fuk); box-shadow: inset 0 0 0 2px var(--sb-fuk); }
+  .thumbs button img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .buy { padding: 44px 36px; }
+  .buy .ptag { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sb-fuk); }
+  .buy h1 { font-weight: 800; font-size: clamp(34px, 4.4vw, 60px); text-transform: uppercase; letter-spacing: -0.035em; line-height: 0.95; margin-top: 12px; }
+  .buy .rate { margin-top: 16px; display: flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--sb-dim); }
+  .buy .rate .stars { color: var(--sb-fuk); letter-spacing: 2px; font-size: 14px; }
+  .buy .price { margin-top: 24px; font-weight: 800; font-size: 34px; letter-spacing: -0.02em; }
+  .buy .price small { font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--sb-dim); margin-left: 10px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .buy .blurb { margin-top: 20px; font-size: 16px; color: var(--sb-dim); line-height: 1.6; }
+
+  .opt { margin-top: 30px; }
+  .opt .ol { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sb-dim); margin-bottom: 13px; display: flex; justify-content: space-between; align-items: baseline; }
+  .opt .ol b { color: #fff; font-weight: 700; font-family: var(--font-sans); letter-spacing: 0; text-transform: none; font-size: 14px; }
+
+  .swatches { display: flex; gap: 12px; }
+  .swatch { width: 42px; height: 42px; border: 1px solid var(--sb-line2); cursor: pointer; position: relative; }
+  .swatch.active::after { content: ""; position: absolute; inset: -5px; border: 2px solid var(--sb-fuk); }
+
+  .sizes { display: flex; gap: 10px; flex-wrap: wrap; }
+  .size { min-width: 52px; height: 50px; padding: 0 14px; border: 1px solid var(--sb-line2); background: transparent; color: #fff; font-family: var(--font-mono); font-size: 13px; font-weight: 600; cursor: pointer; transition: all .14s; }
+  .size:hover { border-color: #fff; }
+  .size.active { background: #fff; color: #000; border-color: #fff; }
+  .size.soldout { opacity: 0.3; text-decoration: line-through; cursor: not-allowed; }
+  .sizeguide { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sb-fuk); cursor: pointer; }
+  .sizeguide:hover { text-decoration: underline; }
+
+  .buyrow { margin-top: 32px; display: flex; gap: 12px; }
+  .qty { display: flex; align-items: center; border: 1px solid var(--sb-line2); flex: none; }
+  .qty button { width: 48px; height: 56px; background: transparent; border: none; color: #fff; font-size: 20px; cursor: pointer; transition: background .14s; }
+  .qty button:hover { background: var(--sb-bg2); }
+  .qty span { min-width: 34px; text-align: center; font-weight: 700; font-size: 16px; font-family: var(--font-mono); }
+  .add { flex: 1; border: none; background: var(--sb-fuk); color: #000; font-family: var(--font-mono); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: all .14s; }
+  .add:hover { background: #fff; }
+  .buynow { margin-top: 12px; width: 100%; border: 1px solid var(--sb-line2); background: transparent; color: #fff; padding: 17px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: all .14s; }
+  .buynow:hover { background: #fff; color: #000; border-color: #fff; }
+
+  .assure { margin-top: 28px; border-top: 1px solid var(--sb-line); }
+  .assure div { display: flex; gap: 13px; align-items: flex-start; font-size: 14px; color: var(--sb-dim); line-height: 1.45; padding: 15px 0; border-bottom: 1px solid var(--sb-line); }
+  .assure svg { width: 18px; height: 18px; stroke: var(--sb-fuk); fill: none; stroke-width: 1.7; flex: none; margin-top: 1px; }
+  .assure b { color: #fff; font-weight: 600; }
+
+  .acc { margin-top: 8px; }
+  .acc details { border-bottom: 1px solid var(--sb-line); }
+  .acc summary { list-style: none; cursor: pointer; padding: 18px 0; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 14px; font-family: var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase; }
+  .acc summary::-webkit-details-marker { display: none; }
+  .acc summary .pm { font-size: 22px; color: var(--sb-dim); transition: transform .2s; line-height: 1; }
+  .acc details[open] summary .pm { transform: rotate(45deg); color: var(--sb-fuk); }
+  .acc .ac-body { padding: 0 0 22px; font-size: 14.5px; color: var(--sb-dim); line-height: 1.65; font-family: var(--font-sans); text-transform: none; letter-spacing: 0; font-weight: 400; }
+  .acc .ac-body ul { margin: 0; padding-left: 18px; }
+  .acc .ac-body li { margin-bottom: 6px; }
+  .acc .ac-body a { color: var(--sb-fuk); }
+
+  /* SPEC */
+  .spec { max-width: var(--sb-maxw); margin: 0 auto; }
+  .flist { list-style: none; margin: 30px 0 0; padding: 0; border-top: 1px solid var(--sb-line2); }
+  .flist li { display: grid; grid-template-columns: 220px 1fr; gap: 24px; padding: 22px 4px; border-bottom: 1px solid var(--sb-line); }
+  .flist li b { font-weight: 700; font-size: 15px; }
+  .flist li span { color: var(--sb-dim); font-size: 15px; line-height: 1.5; }
+
+  /* RELATED */
+  .rel { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--sb-line2); margin-top: 44px; }
+  .rcard { display: block; border-right: 1px solid var(--sb-line); transition: background .2s; }
+  .rcard:last-child { border-right: none; }
+  .rcard:hover { background: var(--sb-bg); }
+  .rcard .rm { position: relative; aspect-ratio: 4/5; overflow: hidden; background: var(--sb-bg); }
+  .rcard .rm img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s; }
+  .rcard:hover .rm img { transform: scale(1.05); }
+  .rcard .rm .tag { position: absolute; left: 14px; top: 14px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; background: var(--sb-fuk); color: #000; padding: 5px 9px; }
+  .rcard .rb { padding: 20px; }
+  .rcard .rn { font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.1; }
+  .rcard .rd { font-size: 13px; color: var(--sb-dim); margin-top: 6px; }
+  .rcard .rp { font-family: var(--font-mono); font-weight: 700; font-size: 14px; margin-top: 12px; }
+
+  /* CART + TOAST */
+  .cart-fab { position: fixed; right: 22px; bottom: 22px; z-index: 120; display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #000; border: none; padding: 14px 20px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; cursor: pointer; box-shadow: 0 18px 40px -16px rgba(0,0,0,0.7); }
+  .cart-fab svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+  .cart-fab .cnt { background: var(--sb-fuk); color: #000; min-width: 22px; height: 22px; padding: 0 6px; display: grid; place-items: center; font-size: 12px; }
+  .cart-fab.pop { animation: cpop .4s ease; }
+  @keyframes cpop { 0%,100%{transform:scale(1);} 40%{transform:scale(1.12);} }
+  .toast { position: fixed; left: 50%; bottom: 26px; transform: translate(-50%, 30px); z-index: 130; background: var(--sb-fuk); color: #000; padding: 14px 20px; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 12px; box-shadow: 0 20px 50px -18px rgba(0,0,0,0.6); opacity: 0; pointer-events: none; transition: opacity .22s, transform .22s; max-width: 90vw; }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+  .toast .ok { width: 22px; height: 22px; background: #000; color: var(--sb-fuk); display: grid; place-items: center; font-size: 13px; flex: none; }
+  .toast a { color: #000; font-weight: 800; text-decoration: underline; }
+
+  @media (max-width: 1000px) {
+    .pdp { grid-template-columns: 1fr; }
+    .gallery { position: static; border-right: none; border-bottom: 1px solid var(--sb-line); }
+    .rel { grid-template-columns: 1fr 1fr; }
+    .rcard:nth-child(2) { border-right: none; }
+    .rcard:nth-child(-n+2) { border-bottom: 1px solid var(--sb-line); }
+  }
+  @media (max-width: 560px) {
+    .gallery, .buy { padding: 24px 20px; }
+    .flist li { grid-template-columns: 1fr; gap: 4px; }
+    .rel { grid-template-columns: 1fr; }
+    .rcard { border-right: none; border-bottom: 1px solid var(--sb-line); }
+  }
+</style>
+</head>
+<body class="sb" data-screen-label="Individual Product">
+<div data-site-header data-active="shop"></div>
+
+<div class="pcrumb"><div class="pcrumb-in"><a href="index.html">Home</a><span class="sep">/</span><a href="shop.html">Shop</a><span class="sep">/</span>Jerseys<span class="sep">/</span>Pro Basketball Jersey</div></div>
+
+<div class="pdp">
+  <!-- GALLERY -->
+  <div class="gallery">
+    <div class="main"><img id="mainImg" src="assets/img/jersey-trio.jpg" alt="Jasiri pro basketball jersey, front" /></div>
+    <div class="thumbs" id="thumbs">
+      <button class="active" data-src="assets/img/jersey-trio.jpg"><img src="assets/img/jersey-trio.jpg" alt="Jersey on the squad" /></button>
+      <button data-src="assets/img/jersey-detail.jpg"><img src="assets/img/jersey-detail.jpg" alt="Jersey crest detail" /></button>
+      <button data-src="assets/img/team-full.jpg"><img src="assets/img/team-full.jpg" alt="Full squad in kit" /></button>
+      <button data-src="assets/img/huddle-hands.jpg"><img src="assets/img/huddle-hands.jpg" alt="Team huddle" /></button>
+    </div>
+  </div>
+
+  <!-- BUY -->
+  <div class="buy">
+    <span class="ptag">#LockedIn &middot; Game-day</span>
+    <h1>Pro Basketball Jersey</h1>
+    <div class="rate"><span class="stars">★★★★★</span> <span>4.8 &middot; 36 reviews</span></div>
+    <div class="price">Ksh 4,500 <small>incl. VAT</small></div>
+    <p class="blurb">The on-court jersey worn by the Jasiri Generals. Lightweight performance mesh, bonded fuchsia trim, and the aperture crest front and back. Built for the run — engineered for the grind.</p>
+
+    <div class="opt">
+      <div class="ol">Colour <b id="colorName">Black / Fuchsia</b></div>
+      <div class="swatches" id="swatches">
+        <span class="swatch active" data-name="Black / Fuchsia" style="background:linear-gradient(135deg,#0b0b0f 58%,#FF49F4 58%)" title="Black / Fuchsia"></span>
+        <span class="swatch" data-name="Away White" style="background:linear-gradient(135deg,#f3f3f6 58%,#0b0b0f 58%)" title="Away White"></span>
+        <span class="swatch" data-name="Cobalt" style="background:linear-gradient(135deg,#0b0b0f 58%,#2A4BFF 58%)" title="Cobalt"></span>
+      </div>
+    </div>
+
+    <div class="opt">
+      <div class="ol">Size <span class="sizeguide" id="sizeGuide">Size guide</span></div>
+      <div class="sizes" id="sizes">
+        <button class="size" data-size="XS">XS</button>
+        <button class="size" data-size="S">S</button>
+        <button class="size active" data-size="M">M</button>
+        <button class="size" data-size="L">L</button>
+        <button class="size" data-size="XL">XL</button>
+        <button class="size soldout" data-size="XXL" disabled>XXL</button>
+      </div>
+    </div>
+
+    <div class="buyrow">
+      <div class="qty">
+        <button id="qMinus" aria-label="Decrease quantity">−</button>
+        <span id="qVal">1</span>
+        <button id="qPlus" aria-label="Increase quantity">+</button>
+      </div>
+      <button class="add" id="addBtn">Add to cart — Ksh 4,500</button>
+    </div>
+    <button class="buynow" id="buyNow">Buy it now</button>
+
+    <div class="assure">
+      <div><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span><b>Every purchase supports</b> the Jasiri professional athlete welfare fund.</span></div>
+      <div><svg viewBox="0 0 24 24"><path d="M3 7h13v10H3zM16 10h4l1 4v3h-5z"/><circle cx="7" cy="18" r="1.6"/><circle cx="18" cy="18" r="1.6"/></svg><span><b>Ships across the region</b> — Nairobi &amp; Kigali in 2–4 days, EA-wide in 5–9.</span></div>
+      <div><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 4v5h-5"/></svg><span><b>30-day exchanges</b> on unworn items with tags.</span></div>
+    </div>
+
+    <div class="acc">
+      <details open><summary>Description <span class="pm">+</span></summary><div class="ac-body">The Jasiri Pro Basketball Jersey is the exact game-day kit of the Jasiri Generals. A breathable double-knit performance mesh keeps you cool through four quarters, while bonded — not stitched — trim cuts chafe on the drive. The aperture crest sits front-left with bold tackle-twill numerals front and back. <em>Draft copy — final product description to follow.</em></div></details>
+      <details><summary>Fabric &amp; fit <span class="pm">+</span></summary><div class="ac-body"><ul><li>92% recycled polyester, 8% elastane performance mesh</li><li>Athletic cut — sits true to size; size up for a relaxed fit</li><li>Moisture-wicking, four-way stretch</li><li>Tackle-twill numerals, bonded side trim</li></ul></div></details>
+      <details><summary>Shipping &amp; returns <span class="pm">+</span></summary><div class="ac-body">Nairobi &amp; Kigali: 2–4 working days. East Africa: 5–9 working days. Free local delivery over Ksh 8,000. 30-day exchanges on unworn items with tags attached — <a href="contact.html#inquiries">contact the team</a> to arrange.</div></details>
+    </div>
+  </div>
+</div>
+
+<!-- SPEC -->
+<section class="sb-block" style="padding:72px 0">
+  <div class="sb-wrap spec">
+    <span class="sb-kick">The details</span>
+    <h2 class="sb-big">Spec sheet.</h2>
+    <ul class="flist">
+      <li><b>Material</b><span>92% recycled performance polyester, 8% elastane double-knit mesh</span></li>
+      <li><b>Fit</b><span>Athletic / true to size · unisex sizing XS–XXL</span></li>
+      <li><b>Crest</b><span>Embroidered aperture mark, front-left chest</span></li>
+      <li><b>Numerals</b><span>Tackle-twill, front &amp; back · custom numbers available</span></li>
+      <li><b>Care</b><span>Cold machine wash, inside out · hang dry · no iron on print</span></li>
+      <li><b>Made for</b><span>Game-day, training &amp; the culture · #LockedIn</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- RELATED -->
+<section class="sb-block" style="padding-top:64px;padding-bottom:0">
+  <div class="sb-wrap">
+    <span class="sb-kick">Complete the kit</span>
+    <h2 class="sb-big">You might<br>also like.</h2>
+  </div>
+  <div class="rel">
+    <a class="rcard" href="product.html"><div class="rm"><span class="tag">Limited</span><img src="assets/img/woman-croptop.jpg" alt="JASIRI crop top"></div><div class="rb"><div class="rn">"JASIRI" Crop Top</div><div class="rd">White / black raglan</div><div class="rp">Ksh 3,200</div></div></a>
+    <a class="rcard" href="product.html"><div class="rm"><img src="assets/img/man-laces-2.jpg" alt="Long-sleeve shooting shirt"></div><div class="rb"><div class="rn">LockedIn Shooting Shirt</div><div class="rd">White / black · long sleeve</div><div class="rp">Ksh 4,800</div></div></a>
+    <a class="rcard" href="product.html"><div class="rm"><img src="assets/img/man-tee.jpg" alt="Uncertainty Tax tee"></div><div class="rb"><div class="rn">"Uncertainty Tax" Tee</div><div class="rd">The iconic phrase</div><div class="rp">Ksh 3,200</div></div></a>
+    <a class="rcard" href="product.html"><div class="rm"><img src="assets/img/women-pair.jpg" alt="Matchday squad tee"></div><div class="rb"><div class="rn">Matchday Squad Tee</div><div class="rd">Black / fuchsia</div><div class="rp">Ksh 3,000</div></div></a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sb-block cta" style="text-align:center;border-top:1px solid var(--sb-line)">
+  <div class="sb-wrap">
+    <span class="sb-kick" style="justify-content:center">New drops, first</span>
+    <h2 class="sb-big" style="font-size:clamp(40px,7vw,104px)">Wear the<br><span class="pink">culture.</span></h2>
+    <p style="margin:24px auto 0;max-width:520px;color:var(--sb-dim);font-size:17px">Join the community and get early access to every release.</p>
+    <a href="contact.html#community" class="sb-btn sb-btn-pink" style="margin-top:34px">Join the Community &rarr;</a>
+  </div>
+</section>
+
+<button class="cart-fab" id="cartFab" title="Your cart"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg> Cart <span class="cnt" id="cartCnt">0</span></button>
+<div class="toast" id="toast"><span class="ok">✓</span><span id="toastMsg">Added to cart</span></div>
+
+<div data-site-footer></div>
+<script src="assets/reveal.js"></script>
+<script src="partials.js"></script>
+<script>
+(function(){
+  var KEY = 'jasiri_cart';
+  var state = { size: 'M', color: 'Black / Fuchsia', qty: 1 };
+  var cnt = document.getElementById('cartCnt');
+  var fab = document.getElementById('cartFab');
+  function getCart(){ var n = parseInt(localStorage.getItem(KEY) || '0', 10); return isNaN(n) ? 0 : n; }
+  function setCart(n){ localStorage.setItem(KEY, String(n)); cnt.textContent = n; }
+  setCart(getCart());
+
+  var mainImg = document.getElementById('mainImg');
+  document.getElementById('thumbs').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if(!b) return;
+    mainImg.src = b.getAttribute('data-src');
+    this.querySelectorAll('button').forEach(function(x){ x.classList.remove('active'); });
+    b.classList.add('active');
+  });
+
+  var colorName = document.getElementById('colorName');
+  document.getElementById('swatches').addEventListener('click', function(e){
+    var s = e.target.closest('.swatch'); if(!s) return;
+    this.querySelectorAll('.swatch').forEach(function(x){ x.classList.remove('active'); });
+    s.classList.add('active'); state.color = s.getAttribute('data-name'); colorName.textContent = state.color;
+  });
+
+  document.getElementById('sizes').addEventListener('click', function(e){
+    var s = e.target.closest('.size'); if(!s || s.disabled) return;
+    this.querySelectorAll('.size').forEach(function(x){ x.classList.remove('active'); });
+    s.classList.add('active'); state.size = s.getAttribute('data-size');
+  });
+
+  var qVal = document.getElementById('qVal');
+  document.getElementById('qMinus').addEventListener('click', function(){ if(state.qty>1){ state.qty--; qVal.textContent = state.qty; } });
+  document.getElementById('qPlus').addEventListener('click', function(){ if(state.qty<10){ state.qty++; qVal.textContent = state.qty; } });
+
+  var toast = document.getElementById('toast'), toastMsg = document.getElementById('toastMsg'), tTimer;
+  function showToast(msg){ toastMsg.innerHTML = msg; toast.classList.add('show'); clearTimeout(tTimer); tTimer = setTimeout(function(){ toast.classList.remove('show'); }, 2800); }
+
+  function addToCart(){
+    setCart(getCart() + state.qty);
+    fab.classList.remove('pop'); void fab.offsetWidth; fab.classList.add('pop');
+    showToast('Added — <b>' + state.qty + ' × Pro Jersey</b> (' + state.size + ', ' + state.color + ')');
+  }
+  document.getElementById('addBtn').addEventListener('click', addToCart);
+  document.getElementById('buyNow').addEventListener('click', function(){ addToCart(); showToast('Checkout is a demo — <a href="contact.html#community">join the community</a> for launch.'); });
+  fab.addEventListener('click', function(){ var n = getCart(); showToast(n ? n + ' item' + (n>1?'s':'') + ' in your cart — checkout coming soon.' : 'Your cart is empty.'); });
+  document.getElementById('sizeGuide').addEventListener('click', function(){ showToast('Size guide coming soon — sizing runs true to size.'); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jasiri — Data-backed resumes: how to impress a global scout</title>
+<link rel="stylesheet" href="assets/brand.css" />
+<link rel="stylesheet" href="assets/stadium-chrome.css" />
+<link rel="stylesheet" href="assets/stadium.css" />
+<style>
+  .progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--sb-fuk); z-index: 200; }
+
+  /* HERO */
+  .ahero { border-bottom: 1px solid var(--sb-line); padding: 52px 0 46px; }
+  .ahero .crumb { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sb-dim); margin-bottom: 26px; display: flex; gap: 9px; flex-wrap: wrap; }
+  .ahero .crumb a:hover { color: var(--sb-fuk); }
+  .ahero .crumb .sep { opacity: 0.5; }
+  .ahead { max-width: 980px; }
+  .ahero h1 { font-weight: 800; font-size: clamp(34px, 6vw, 84px); line-height: 0.92; letter-spacing: -0.04em; text-transform: uppercase; margin-top: 22px; }
+  .ahero h1 .pink { color: var(--sb-fuk); }
+  .adek { margin-top: 26px; font-size: 20px; line-height: 1.5; color: #D6D6E0; max-width: 60ch; }
+  .byline { margin-top: 36px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--sb-line2); padding-top: 22px; }
+  .byline .av { width: 46px; height: 46px; background: var(--sb-cob); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 15px; flex: none; font-family: var(--font-mono); }
+  .byline .who b { font-weight: 700; font-size: 15px; }
+  .byline .who span { display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sb-dim); margin-top: 3px; }
+  .byline .meta { margin-left: auto; display: flex; align-items: center; gap: 20px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sb-dim); }
+  .byline .share { display: flex; gap: 8px; }
+  .byline .share a { width: 34px; height: 34px; border: 1px solid var(--sb-line2); display: grid; place-items: center; color: var(--sb-dim); }
+  .byline .share a:hover { color: var(--sb-fuk); border-color: var(--sb-fuk); }
+  .byline .share svg { width: 14px; height: 14px; fill: currentColor; }
+
+  /* LEAD IMG */
+  .lead { position: relative; border-bottom: 1px solid var(--sb-line); aspect-ratio: 21/9; overflow: hidden; background: var(--sb-bg2); }
+  .lead img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: contrast(1.05); }
+  .lead::before { content: ""; position: absolute; inset: 0; z-index: 1; background-image: linear-gradient(var(--sb-line) 1px, transparent 1px), linear-gradient(90deg, var(--sb-line) 1px, transparent 1px); background-size: 100% 33.33%, 12.5% 100%; opacity: 0.4; }
+  .lead figcaption { position: absolute; left: 0; bottom: 0; z-index: 2; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; background: rgba(5,5,7,0.7); padding: 9px 14px; }
+
+  /* BODY */
+  .abody { max-width: 760px; margin: 0 auto; padding: 72px 36px 40px; }
+  .draft-flag { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sb-dim); border: 1px dashed var(--sb-line2); padding: 9px 13px; margin-bottom: 44px; display: inline-block; }
+  .draft-flag b { color: var(--sb-fuk); }
+  .abody > p { font-size: 18.5px; line-height: 1.72; color: #E4E4EC; margin: 0 0 26px; }
+  .abody > p.lede { font-size: 24px; line-height: 1.5; color: #fff; font-weight: 420; }
+  .abody a.inl { color: var(--sb-fuk); border-bottom: 1px solid currentColor; }
+  .abody h2 { font-weight: 800; font-size: clamp(28px, 4vw, 42px); text-transform: uppercase; letter-spacing: -0.03em; line-height: 1.0; margin: 56px 0 22px; }
+  .abody h2 .n { font-family: var(--font-mono); font-size: 0.4em; color: var(--sb-cob); font-weight: 600; vertical-align: middle; margin-right: 14px; }
+  .abody ul { margin: 0 0 28px; padding: 0; list-style: none; border-top: 1px solid var(--sb-line); }
+  .abody ul li { position: relative; padding: 15px 0 15px 32px; border-bottom: 1px solid var(--sb-line); font-size: 17px; line-height: 1.5; color: #E4E4EC; }
+  .abody ul li::before { content: "\2192"; position: absolute; left: 0; color: var(--sb-fuk); font-weight: 700; }
+  .abody ul li b { font-weight: 700; color: #fff; }
+
+  .pq { margin: 56px 0; padding: 4px 0 4px 28px; border-left: 3px solid var(--sb-fuk); }
+  .pq p { font-weight: 800; font-size: clamp(28px, 4.6vw, 46px); text-transform: uppercase; letter-spacing: -0.03em; line-height: 1.02; }
+  .pq p .pink { color: var(--sb-fuk); }
+  .pq cite { display: block; margin-top: 18px; font-style: normal; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sb-dim); }
+
+  .ifig { margin: 52px 0; }
+  .ifig .im { aspect-ratio: 16/10; overflow: hidden; background: var(--sb-bg2); border: 1px solid var(--sb-line); }
+  .ifig .im img { width: 100%; height: 100%; object-fit: cover; }
+  .ifig figcaption { margin-top: 12px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--sb-dim); }
+
+  .callout { margin: 56px 0; padding: 38px; border: 1px solid var(--sb-line2); background: var(--sb-bg2); }
+  .callout .lbl { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sb-fuk); }
+  .callout .big { font-weight: 800; font-size: clamp(48px, 8vw, 88px); letter-spacing: -0.05em; line-height: 0.88; margin-top: 16px; }
+  .callout .big small { font-size: 0.3em; color: var(--sb-cob); vertical-align: super; }
+  .callout p { margin-top: 16px; font-size: 16px; color: var(--sb-dim); line-height: 1.55; }
+
+  /* FOOT of article */
+  .afoot { max-width: 760px; margin: 0 auto; padding: 14px 36px 0; }
+  .tagrow { display: flex; gap: 9px; flex-wrap: wrap; padding-bottom: 44px; border-bottom: 1px solid var(--sb-line); }
+  .tagrow span { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sb-dim); border: 1px solid var(--sb-line2); padding: 7px 14px; }
+  .author-card { margin: 44px 0 0; display: flex; gap: 20px; align-items: flex-start; padding: 30px; border: 1px solid var(--sb-line2); background: var(--sb-bg2); }
+  .author-card .av { width: 60px; height: 60px; background: var(--sb-cob); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 19px; flex: none; font-family: var(--font-mono); }
+  .author-card h4 { font-size: 18px; font-weight: 700; }
+  .author-card .role { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sb-fuk); margin-top: 4px; }
+  .author-card p { font-size: 14.5px; color: var(--sb-dim); line-height: 1.6; margin-top: 12px; }
+  .author-card a { color: var(--sb-fuk); }
+
+  /* KEEP READING */
+  .posts { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border-top: 1px solid var(--sb-line2); margin-top: 50px; }
+  .post { display: block; padding: 0; border-right: 1px solid var(--sb-line); transition: background .2s; }
+  .post:last-child { border-right: none; }
+  .post:hover { background: var(--sb-bg2); }
+  .post .pm { aspect-ratio: 16/10; overflow: hidden; background: var(--sb-bg2); }
+  .post .pm img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.2); transition: transform .35s; }
+  .post:hover .pm img { transform: scale(1.05); }
+  .post .pb { padding: 24px; }
+  .post .cat { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sb-fuk); }
+  .post h3 { font-weight: 800; font-size: 20px; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.05; margin-top: 12px; }
+  .post p { font-size: 14px; color: var(--sb-dim); margin-top: 10px; line-height: 1.5; }
+  .post .date { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sb-dim); margin-top: 16px; }
+
+  /* CTA */
+  .cta { text-align: center; border-bottom: none; }
+  .cta h2 { font-weight: 800; font-size: clamp(40px,7vw,104px); line-height: 0.9; letter-spacing: -0.045em; text-transform: uppercase; }
+  .cta p { margin: 24px auto 0; max-width: 520px; color: var(--sb-dim); font-size: 17px; }
+  .cta .sb-btn { margin-top: 34px; }
+
+  @media (max-width: 860px) { .posts { grid-template-columns: 1fr; } .post { border-right: none; border-bottom: 1px solid var(--sb-line); } }
+  @media (max-width: 640px) {
+    .abody, .afoot { padding-left: 20px; padding-right: 20px; }
+    .byline .meta { width: 100%; margin-left: 0; justify-content: space-between; }
+    .lead { aspect-ratio: 4/3; }
+  }
+</style>
+</head>
+<body class="sb" data-screen-label="Individual Article">
+<div class="progress" id="progress"></div>
+<div data-site-header data-active="media"></div>
+
+<!-- HERO -->
+<header class="ahero">
+  <div class="sb-wrap">
+    <div class="crumb"><a href="index.html">Home</a><span class="sep">/</span><a href="blog.html">The Pulse</a><span class="sep">/</span>Talent</div>
+    <div class="ahead">
+      <span class="sb-kick" style="margin-bottom:0">Talent &amp; Mobility</span>
+      <h1>Data-backed resumes: how to impress a global <span class="pink">scout.</span></h1>
+      <p class="adek">Verifiable performance data is becoming the new currency for African athletes chasing professional contracts. Here's how to build a record that travels across borders, leagues, and languages.</p>
+    </div>
+    <div class="byline">
+      <div class="av">JM</div>
+      <div class="who"><b>Jasiri Media Desk</b><span>Talent &amp; Pathways</span></div>
+      <div class="meta">
+        <span>Jun 12, 2026</span><span>6 min read</span>
+        <span class="share">
+          <a href="#" aria-label="Share on X"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7 8 8.2 12h-6.4l-5-7-5.7 7H2l7.5-9L1.6 2H8l4.6 6.6L18.9 2z"/></svg></a>
+          <a href="#" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-6a6 6 0 0 1 6-6zM6 9H2v11h4zM4 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg></a>
+          <a href="#" aria-label="Copy link"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
+        </span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- LEAD IMAGE -->
+<figure class="lead reveal">
+  <img src="assets/img/man-tee.jpg" alt="Jasiri athlete presenting a basketball on a Nairobi court" />
+  <figcaption>A Jasiri athlete on a Nairobi court &middot; Photo: Jasiri Media</figcaption>
+</figure>
+
+<!-- BODY -->
+<article class="abody">
+  <span class="draft-flag">Draft copy &middot; <b>placeholder body — final article to follow</b></span>
+
+  <p class="lede">For decades, the gap between an African athlete and a professional contract abroad was not talent — it was proof. Highlight reels travelled; context did not. A scout could see the dunk, but not the load it was carried on.</p>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. The shift now underway is simple to state and hard to build: turn a player's career into a <a href="directory.html" class="inl">verifiable, standardized record</a> that any scout, anywhere, can trust at a glance.</p>
+
+  <h2><span class="n">01</span>Why proof beats potential</h2>
+  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Performance numbers, when collected consistently, do something a highlight cannot: they describe a trend.</p>
+
+  <div class="pq">
+    <p>A reel shows your <span class="pink">best day.</span> A record shows your <span class="pink">average one.</span></p>
+    <cite>— The Jasiri Media Desk</cite>
+  </div>
+
+  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+  <h2><span class="n">02</span>What a data-backed resume contains</h2>
+  <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. A complete athlete profile on Imara pulls these threads into one verifiable place:</p>
+  <ul>
+    <li><b>Verified identity &amp; eligibility</b> — age, club history, and league registration, confirmed at source.</li>
+    <li><b>Standardized performance metrics</b> — the same measures, captured the same way, season over season.</li>
+    <li><b>Physical &amp; welfare markers</b> — load, recovery, and availability that tell the durability story.</li>
+    <li><b>Game footage in context</b> — clips tied to the match, the opponent, and the moment they happened.</li>
+  </ul>
+
+  <figure class="ifig reveal">
+    <div class="im"><img src="assets/img/jersey-detail.jpg" alt="Detail of a Jasiri jersey on court" /></div>
+    <figcaption>Consistency is the point — the same data, gathered the same way, every match.</figcaption>
+  </figure>
+
+  <h2><span class="n">03</span>The numbers that move the needle</h2>
+  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+
+  <div class="callout reveal">
+    <div class="lbl">By the numbers</div>
+    <div class="big"><span data-count="1000">0</span><small>+</small></div>
+    <p>Athletes formalized through Jasiri data tools — each with a record a scout can verify in seconds, not weeks.</p>
+  </div>
+
+  <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis.</p>
+
+  <h2><span class="n">04</span>Building yours</h2>
+  <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus. Start with one season, captured properly, and let the record compound from there. <a href="contact.html#community" class="inl">Join the community</a> to be first when athlete profiles open.</p>
+</article>
+
+<!-- ARTICLE FOOTER -->
+<div class="afoot">
+  <div class="tagrow"><span>#Talent</span><span>#Scouting</span><span>#DataOS</span><span>#LockedIn</span><span>#Mobility</span></div>
+  <div class="author-card reveal">
+    <div class="av">JM</div>
+    <div>
+      <h4>Jasiri Media Desk</h4>
+      <div class="role">Talent &amp; Pathways</div>
+      <p>The Jasiri Media Desk covers the people, data, and infrastructure formalizing African sport — from grassroots courts to global contracts. Got a story? <a href="contact.html#inquiries">Get in touch.</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- KEEP READING -->
+<section class="sb-block" style="border-bottom:none">
+  <div class="sb-wrap">
+    <span class="sb-kick">Keep reading</span>
+    <h2 class="sb-big">From the<br>ecosystem.</h2>
+    <div class="posts">
+      <a class="post reveal" href="article.html"><div class="pm"><img src="assets/img/man-laces-2.jpg" alt=""></div><div class="pb"><span class="cat">Product</span><h3>Imara 2.1: digitizing the grassroots club.</h3><p>What the latest release means for community clubs.</p><div class="date">May 2026 · 4 min</div></div></a>
+      <a class="post reveal" data-delay="80" href="article.html"><div class="pm"><img src="assets/img/women-pair.jpg" alt=""></div><div class="pb"><span class="cat">Mobility</span><h3>The Uncertainty Tax, explained.</h3><p>What African sport loses when excellence stays invisible.</p><div class="date">May 2026 · 5 min</div></div></a>
+      <a class="post reveal" data-delay="160" href="article.html"><div class="pm"><img src="assets/img/huddle-hands.jpg" alt=""></div><div class="pb"><span class="cat">Welfare</span><h3>Player welfare is a data problem.</h3><p>Tracking load, recovery, and health to protect athletes.</p><div class="date">Apr 2026 · 7 min</div></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sb-block cta">
+  <div class="sb-wrap">
+    <span class="sb-kick" style="justify-content:center">Stay #LockedIn</span>
+    <h2>Don't miss<br>the <span class="pink">next one.</span></h2>
+    <p>New drops, cultural events, matches, and stories from across the ecosystem. No spam.</p>
+    <a href="contact.html#community" class="sb-btn sb-btn-pink">Join the Community &rarr;</a>
+  </div>
+</section>
+
+<div data-site-footer></div>
+<script src="assets/reveal.js"></script>
+<script src="partials.js"></script>
+<script>
+  (function(){
+    var bar = document.getElementById('progress');
+    function upd(){
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    }
+    window.addEventListener('scroll', upd, { passive: true });
+    window.addEventListener('resize', upd); upd();
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jasiri — The Pulse (Blog)</title>
+<link rel="stylesheet" href="assets/brand.css" />
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+  .feature { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; background: #fff; }
+  .feature .fm { aspect-ratio: 16/11; overflow: hidden; background: var(--bg2); }
+  .feature .fm img { width: 100%; height: 100%; object-fit: cover; }
+  .feature .fb { padding: 12px 44px 12px 4px; }
+  .feature .cat { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+  .feature h2 { font-size: clamp(26px,2.8vw,38px); font-weight: 660; letter-spacing: -0.02em; margin-top: 12px; line-height: 1.1; }
+  .feature p { font-size: 16px; color: var(--mute); margin-top: 14px; line-height: 1.55; }
+  .feature .date { font-size: 13px; color: var(--mute2); margin-top: 18px; }
+</style>
+<link rel="stylesheet" href="assets/theme-stadium.css" />
+  <link rel="stylesheet" href="assets/stadium-chrome.css" />
+</head>
+<body>
+<div data-site-header data-active="media"></div>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Home</a><span class="sep">/</span>Media<span class="sep">/</span>Blog</div>
+    <h1>The Pulse.</h1>
+    <p class="psub">Insights from the African sports ecosystem — sports tech trends, socio-economic mobility, player welfare, and the work of formalizing the game.</p>
+  </div>
+</section>
+
+<section class="block" style="padding-top:64px">
+  <div class="wrap">
+    <article class="feature reveal">
+      <div class="fm"><a href="article.html"><img src="assets/img/man-tee.jpg" alt="Athlete presenting a basketball" /></a></div>
+      <div class="fb">
+        <span class="cat">Featured · Talent</span>
+        <h2>Data-backed resumes: how to impress a global scout.</h2>
+        <p>Why verifiable performance data is becoming the new currency for African athletes chasing professional contracts — and how to build a record that travels.</p>
+        <div class="date">June 2026 · 6 min read</div>
+        <a href="article.html" class="btn btn-ghost" style="margin-top:20px">Read the story &rarr;</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="block" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:40px"><span class="kicker">Latest</span><h2 class="title">From the ecosystem.</h2></div>
+    <div class="post-grid">
+      <article class="post reveal"><a href="article.html"><div class="pm"><img src="assets/img/man-laces-2.jpg" alt=""></div></a><div class="pb"><span class="cat">Product</span><h3>Imara 2.1: digitizing the football club from grassroots.</h3><p>A look at the latest release and what it means for community clubs running on Imara.</p><div class="date">May 2026 · 4 min</div></div></article>
+      <article class="post reveal" data-delay="80"><a href="article.html"><div class="pm"><img src="assets/img/women-pair.jpg" alt=""></div></a><div class="pb"><span class="cat">Mobility</span><h3>The Uncertainty Tax, explained.</h3><p>What African sport loses when excellence stays invisible — and how infrastructure changes the math.</p><div class="date">May 2026 · 5 min</div></div></article>
+      <article class="post reveal" data-delay="160"><a href="article.html"><div class="pm"><img src="assets/img/huddle-hands.jpg" alt=""></div></a><div class="pb"><span class="cat">Welfare</span><h3>Player welfare is a data problem.</h3><p>Tracking load, recovery, and health to protect the athletes building the future of the game.</p><div class="date">Apr 2026 · 7 min</div></div></article>
+    </div>
+    <div class="rowlist reveal" style="margin-top:50px">
+      <a class="lrow" href="#"><span class="meta">Analytics · Apr 2026</span><div><h3>The future of sports analytics in Nairobi.</h3></div><span class="arrow">&rarr;</span></a>
+      <a class="lrow" href="#"><span class="meta">Facilities · Mar 2026</span><div><h3>Why a frictionless marketplace changes the game for facility owners.</h3></div><span class="arrow">&rarr;</span></a>
+      <a class="lrow" href="#"><span class="meta">Culture · Mar 2026</span><div><h3>From grassroots grit to global blueprints.</h3></div><span class="arrow">&rarr;</span></a>
+    </div>
+    <p class="reveal" style="margin-top:24px;color:var(--mute2);font-size:13.5px">Article titles are drafts — real posts to follow. <a href="article.html" style="color:var(--accent)">See the article template &rarr;</a></p>
+  </div>
+</section>
+
+<div data-site-footer></div>
+<script src="assets/reveal.js"></script>
+<script src="partials.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jasiri — Imara</title>
+<link rel="stylesheet" href="assets/brand.css" />
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+  .dash { border: 1px solid var(--line2); border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 30px 80px -44px rgba(0,47,241,0.32); }
+  .dash .bar { display: flex; align-items: center; gap: 8px; padding: 13px 16px; border-bottom: 1px solid var(--line); background: var(--bg2); }
+  .dash .bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--line2); }
+  .dash .bar .t { font-family: var(--font-mono); font-size: 11.5px; color: var(--mute); margin-left: 6px; }
+  .dash .body { padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .kpi { border: 1px solid var(--line); border-radius: 11px; padding: 16px; }
+  .kpi .k { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mute2); }
+  .kpi .v { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-top: 6px; }
+  .kpi .v small { font-size: 0.5em; color: #1FBF6B; }
+  .kpi.wide { grid-column: 1 / -1; }
+  .spark { display: flex; align-items: flex-end; gap: 5px; height: 46px; margin-top: 12px; }
+  .spark span { flex: 1; background: linear-gradient(180deg, var(--accent), #6f86ff); border-radius: 3px 3px 0 0; opacity: 0.9; }
+</style>
+<link rel="stylesheet" href="assets/theme-stadium.css" />
+  <link rel="stylesheet" href="assets/stadium-chrome.css" />
+</head>
+<body>
+<div data-site-header data-active="products"></div>
+
+<section class="phero dark">
+  <div class="wrap">
+    <div class="phero-grid">
+      <div>
+        <div class="crumb"><a href="index.html">Home</a><span class="sep">/</span>Products<span class="sep">/</span>Imara</div>
+        <span class="pill dot" style="margin-bottom:18px;background:rgba(255,255,255,0.08);color:#fff">Professionalize &middot; Digitise &middot; Monetise</span>
+        <h1>The central command center for <span style="color:var(--aero)">sports entities.</span></h1>
+        <p class="psub">Imara is Jasiri's enterprise solution for sports entities that need to operate at a professional standard — the operating system that turns a disorganized club into a streamlined operation.</p>
+        <div class="phero-actions"><a href="contact.html#inquiries" class="btn btn-light">Request an Imara demo &rarr;</a></div>
+      </div>
+      <div class="dash reveal">
+        <div class="bar"><i></i><i></i><i></i><span class="t">imara / Jasiri Generals · dashboard</span></div>
+        <div class="body">
+          <div class="kpi"><div class="k">Active players</div><div class="v">38</div></div>
+          <div class="kpi"><div class="k">Attendance</div><div class="v">92<small>%</small></div></div>
+          <div class="kpi wide"><div class="k">Training load · last 14 days</div><div class="spark"><span style="height:40%"></span><span style="height:60%"></span><span style="height:50%"></span><span style="height:75%"></span><span style="height:65%"></span><span style="height:85%"></span><span style="height:70%"></span><span style="height:90%"></span><span style="height:80%"></span><span style="height:100%"></span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker">What's inside</span><h2 class="title">One operating system. Every workflow.</h2></div>
+    <ul class="flist reveal" style="margin-top:48px">
+      <li><b>CRM</b><span>Manage player profiles, contracts, and parent communications — every relationship in one record.</span></li>
+      <li><b>Scheduling</b><span>Sync training, matches, and facility usage so nothing collides and nobody's left guessing.</span></li>
+      <li><b>Analytics</b><span>Monitor player welfare, progress, and performance data with dashboards built for how clubs actually run.</span></li>
+      <li><b>Payments</b><span>Automate dues, memberships, and facility revenue with clear, auditable pipelines.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="grid-3">
+      <div class="card reveal"><span class="num">For clubs</span><h3>Run a tighter ship</h3><p>Replace WhatsApp groups and notebooks with one professional system — and cut administrative noise by up to 70%.</p></div>
+      <div class="card reveal" data-delay="80"><span class="num">For leagues</span><h3>Standardize everything</h3><p>Consistent fixtures, results, and records across every club in your competition.</p></div>
+      <div class="card reveal" data-delay="160"><span class="num">For federations</span><h3>Digitize at scale</h3><p>Bring a whole national structure online with verifiable, longitudinal data.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block cta-band">
+  <div class="wrap">
+    <h2>Command your court. Run the game.</h2>
+    <p>See Imara in action with a walkthrough tailored to your club, league, or federation.</p>
+    <a href="contact.html#inquiries" class="btn btn-light">Request an Imara demo &rarr;</a>
+  </div>
+</section>
+
+<div data-site-footer></div>
+<script src="assets/reveal.js"></script>
+<script src="partials.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jasiri — #LockedIn (Podcast)</title>
+<link rel="stylesheet" href="assets/brand.css" />
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+  .ep { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+  .ep:first-child { border-top: 1px solid var(--line); }
+  .ep .play { width: 56px; height: 56px; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; flex: none; transition: transform .18s, background .18s; }
+  .ep:hover .play { transform: scale(1.06); background: var(--accent2); }
+  .ep .play svg { width: 20px; height: 20px; fill: #fff; margin-left: 2px; }
+  .ep .epn { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute2); }
+  .ep h3 { font-size: clamp(19px,2vw,25px); font-weight: 620; margin-top: 4px; }
+  .ep p { font-size: 14.5px; color: var(--mute); margin-top: 6px; max-width: 620px; }
+  .ep .dur { font-family: var(--font-mono); font-size: 12px; color: var(--mute2); white-space: nowrap; }
+</style>
+<link rel="stylesheet" href="assets/theme-stadium.css" />
+  <link rel="stylesheet" href="assets/stadium-chrome.css" />
+</head>
+<body>
+<div data-site-header data-active="media"></div>
+
+<section class="phero dark">
+  <div class="wrap">
+    <div class="phero-grid">
+      <div>
+        <div class="crumb"><a href="index.html">Home</a><span class="sep">/</span>Media<span class="sep">/</span>Podcast</div>
+        <h1 style="max-width:16ch">#LockedIn: stories from the African sports revolution.</h1>
+        <p class="psub">Conversations with the athletes, innovators, and leaders formalizing African sport.</p>
+        <div class="phero-actions"><a href="#" class="btn btn-light">Listen on Spotify &rarr;</a><a href="#" class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,0.3)">Apple Podcasts</a></div>
+      </div>
+      <div class="phero-media"><img src="assets/img/woman-bw.jpg" alt="Athlete portrait" /></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:36px"><span class="kicker">Episodes</span><h2 class="title">Listen in.</h2></div>
+    <div class="reveal">
+      <div class="ep"><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><div><div class="epn">Episode 01</div><h3>Madina Okot on the pathway to global stardom.</h3><p>From Nairobi courts to international attention — building a career one verifiable game at a time.</p></div><span class="dur">42 min</span></div>
+      <div class="ep"><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><div><div class="epn">Episode 02</div><h3>The future of sports analytics in Nairobi.</h3><p>How data is reshaping coaching, scouting, and welfare across East African sport.</p></div><span class="dur">38 min</span></div>
+      <div class="ep"><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><div><div class="epn">Episode 03</div><h3>Running a club on Imara.</h3><p>An honest conversation with an administrator about going from notebooks to a real operating system.</p></div><span class="dur">45 min</span></div>
+      <div class="ep"><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><div><div class="epn">Episode 04</div><h3>Wear the culture: sport, streetwear, and identity.</h3><p>Why the culture around the game matters as much as the game itself.</p></div><span class="dur">36 min</span></div>
+    </div>
+    <p class="reveal" style="margin-top:24px;color:var(--mute2);font-size:13.5px">Episode lineup is illustrative — full series to be announced.</p>
+  </div>
+</section>
+
+<section class="block cta-band">
+  <div class="wrap">
+    <h2>Never miss an episode.</h2>
+    <p>Subscribe and stay #LockedIn to the stories moving African sport forward.</p>
+    <a href="contact.html#community" class="btn btn-light">Join the Community &rarr;</a>
+  </div>
+</section>
+
+<div data-site-footer></div>
+<script src="assets/reveal.js"></script>
+<script src="partials.js"></script>
+</body>
+</html>

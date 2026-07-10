@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jasiri — Shop</title>
+<link rel="stylesheet" href="assets/brand.css" />
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+  .shop-hero { background: var(--ink); color: #fff; position: relative; overflow: hidden; }
+  .shop-hero .wrap { padding: 92px 40px; position: relative; z-index: 2; text-align: center; }
+  .shop-hero h1 { font-size: clamp(44px,6vw,92px); font-weight: 720; letter-spacing: -0.035em; line-height: 0.96; }
+  .shop-hero h1 .pink { color: var(--fuchsia); }
+  .shop-hero p { margin: 24px auto 0; max-width: 560px; font-size: 18px; color: rgba(255,255,255,0.74); }
+  .shop-hero::after { content:""; position:absolute; inset:0; z-index:1; background: radial-gradient(60% 80% at 80% 0%, rgba(255,73,244,0.22), transparent 60%), radial-gradient(50% 70% at 10% 100%, rgba(0,47,241,0.3), transparent 60%); }
+</style>
+<link rel="stylesheet" href="assets/theme-stadium.css" />
+  <link rel="stylesheet" href="assets/stadium-chrome.css" />
+</head>
+<body>
+<div data-site-header data-active="shop"></div>
+
+<section class="shop-hero">
+  <div class="wrap">
+    <span class="pill dot" style="background:rgba(255,255,255,0.08);color:#fff;margin-bottom:20px">Official merchandise</span>
+    <h1>Wear the culture.<br>Own the <span class="pink">grind.</span></h1>
+    <p>Official merchandise from the African Operating System for Sports. Every purchase directly supports the Jasiri professional athlete welfare fund.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:42px"><span class="kicker">The collection</span><h2 class="title">The drops.</h2></div>
+    <div class="shop-grid">
+      <a class="product reveal" href="product.html">
+        <div class="pim"><span class="tag">#LockedIn</span><img src="assets/img/jersey-trio.jpg" alt="Jasiri pro basketball jersey, pink and black"></div>
+        <div class="pin"><div class="pn">Jasiri Pro Basketball Jersey</div><div class="pd">Black / fuchsia &middot; home &amp; away</div><div class="pp">Ksh 4,500</div></div>
+      </a>
+      <a class="product reveal" data-delay="70" href="product.html">
+        <div class="pim"><span class="tag">Limited</span><img src="assets/img/woman-croptop.jpg" alt="JASIRI performance crop top"></div>
+        <div class="pin"><div class="pn">"JASIRI" Performance Crop Top</div><div class="pd">White / black raglan</div><div class="pp">Ksh 3,200</div></div>
+      </a>
+      <a class="product reveal" data-delay="140" href="product.html">
+        <div class="pim"><img src="assets/img/man-laces-2.jpg" alt="Jasiri long-sleeve shooting shirt"></div>
+        <div class="pin"><div class="pn">LockedIn Long-Sleeve Shooting Shirt</div><div class="pd">White / black &middot; performance fabric</div><div class="pp">Ksh 4,800</div></div>
+      </a>
+      <a class="product reveal" data-delay="210" href="product.html">
+        <div class="pim"><img src="assets/img/man-tee.jpg" alt="Uncertainty Tax tee"></div>
+        <div class="pin"><div class="pn">"Uncertainty Tax" Tee</div><div class="pd">The iconic phrase</div><div class="pp">Ksh 3,200</div></div>
+      </a>
+    </div>
+    <p class="reveal" style="margin-top:26px;color:var(--mute2);font-size:13.5px">Lifestyle &amp; on-court imagery shown — studio product photography to follow.</p>
+  </div>
+</section>
+
+<section class="block" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="grid-3">
+      <div class="card reveal"><h3>Built for the grind</h3><p>Performance fabrics and street-ready cuts, designed with the athletes who actually wear them.</p></div>
+      <div class="card reveal" data-delay="80"><h3>Supports the fund</h3><p>Every purchase contributes to the Jasiri professional athlete welfare fund.</p></div>
+      <div class="card reveal" data-delay="160"><h3>Ships across the region</h3><p>Nairobi, Kigali, and beyond — with more drops added every season.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block cta-band">
+  <div class="wrap">
+    <h2>New drops, first.</h2>
+    <p>Join the community and get early access to every release.</p>
+    <a href="contact.html#community" class="btn btn-light">Join the Community &rarr;</a>
+  </div>
+</section>
+
+<div data-site-footer></div>
+<script src="assets/reveal.js"></script>
+<script src="partials.js"></script>
+</body>
+</html>

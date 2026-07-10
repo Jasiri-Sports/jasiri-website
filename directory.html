@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jasiri — Sports Directory</title>
+<link rel="stylesheet" href="assets/brand.css" />
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+  .cats { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 54px; }
+  .cat { border: 1px solid var(--line); border-radius: 14px; padding: 24px; transition: border-color .2s, transform .2s; }
+  .cat:hover { border-color: var(--line2); transform: translateY(-3px); }
+  .cat h3 { font-size: 18px; font-weight: 620; }
+  .cat .c { font-family: var(--font-mono); font-size: 12px; color: var(--accent); margin-top: 6px; }
+  /* directory preview */
+  .dir-card { border: 1px solid var(--line2); border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 30px 80px -44px rgba(0,47,241,0.32); }
+  .dir-card .bar { display: flex; align-items: center; gap: 10px; padding: 14px 18px; border-bottom: 1px solid var(--line); background: var(--bg2); }
+  .dir-card .bar .s { font-family: var(--font-mono); font-size: 12px; color: var(--mute); }
+  .dir-card .bar .find { margin-left: auto; font-family: var(--font-mono); font-size: 11px; color: var(--mute2); border: 1px solid var(--line2); border-radius: 7px; padding: 5px 10px; }
+  .drow { display: grid; grid-template-columns: 40px 1fr auto auto; align-items: center; gap: 16px; padding: 16px 18px; border-bottom: 1px solid var(--line); }
+  .drow:last-child { border-bottom: none; }
+  .drow .av { width: 40px; height: 40px; border-radius: 9px; background: var(--bg2); color: var(--accent); display: grid; place-items: center; font-family: var(--font-mono); font-weight: 600; font-size: 12px; }
+  .drow .nm { font-size: 15px; font-weight: 600; }
+  .drow .nm small { display: block; font-family: var(--font-mono); font-size: 11px; color: var(--mute2); font-weight: 400; margin-top: 2px; }
+  .drow .type { font-size: 12.5px; color: var(--mute); }
+  .drow .vf { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); background: var(--bg2); padding: 5px 9px; border-radius: 6px; display: inline-flex; align-items: center; gap: 5px; }
+  .drow .vf::before { content:""; width: 6px; height: 6px; border-radius: 50%; background: #1FBF6B; }
+</style>
+<link rel="stylesheet" href="assets/theme-stadium.css" />
+  <link rel="stylesheet" href="assets/stadium-chrome.css" />
+</head>
+<body>
+<div data-site-header data-active="products"></div>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="phero-grid">
+      <div>
+        <div class="crumb"><a href="index.html">Home</a><span class="sep">/</span>Products<span class="sep">/</span>Sports Directory</div>
+        <span class="pill dot" style="margin-bottom:18px">Discover &middot; Verify &middot; Connect</span>
+        <h1>The vetted gateway to <span class="accent">African sports assets.</span></h1>
+        <p class="psub">The era of fragmented information ends now. The most comprehensive, verifiable database of sports facilities, leagues, clubs, and athletic personnel on the continent.</p>
+        <div class="phero-actions"><a href="#" class="btn btn-primary">Start browsing &rarr;</a><a href="#" class="btn btn-ghost">Download the app</a></div>
+      </div>
+      <div class="dir-card reveal">
+        <div class="bar"><span class="s mono">jasiri / directory</span><span class="find">Verified only</span></div>
+        <div class="drow"><span class="av">GN</span><span class="nm">Jasiri Generals<small>Nairobi · Men's Basketball</small></span><span class="type">Club</span><span class="vf">Verified</span></div>
+        <div class="drow"><span class="av">KA</span><span class="nm">Kigali Arena<small>Kigali · Indoor Court</small></span><span class="type">Facility</span><span class="vf">Verified</span></div>
+        <div class="drow"><span class="av">M·</span><span class="nm">Madina Okot<small>Center · 2.04m</small></span><span class="type">Athlete</span><span class="vf">Verified</span></div>
+        <div class="drow"><span class="av">FK</span><span class="nm">FKF Division One<small>Kenya · Football</small></span><span class="type">League</span><span class="vf">Verified</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker">Why the directory</span><h2 class="title">Trusted, standardized information at the click of a button.</h2>
+    <p class="lead">Whether you're a parent looking for a safe training ground or an international scout seeking elite talent, the directory replaces speculation with verifiable records.</p></div>
+    <div class="cats">
+      <div class="cat reveal"><h3>Facilities</h3><div class="c">Courts · gyms · pitches</div></div>
+      <div class="cat reveal" data-delay="60"><h3>Clubs &amp; Teams</h3><div class="c">Grassroots to elite</div></div>
+      <div class="cat reveal" data-delay="120"><h3>Leagues</h3><div class="c">Fixtures · standings</div></div>
+      <div class="cat reveal" data-delay="180"><h3>Personnel</h3><div class="c">Athletes · coaches · staff</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="grid-3">
+      <div class="card reveal"><h3>Discover</h3><p>Search the continent's sports assets in one place — filter by sport, city, level, and availability.</p></div>
+      <div class="card reveal" data-delay="80"><h3>Verify</h3><p>Every record is vetted and standardized. No more guesswork, fake profiles, or dead phone numbers.</p></div>
+      <div class="card reveal" data-delay="160"><h3>Connect</h3><p>Reach out, book, and build relationships directly — from a parent finding a coach to a scout finding a star.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block cta-band">
+  <div class="wrap">
+    <h2>Start browsing the directory.</h2>
+    <p>Download the Jasiri app and explore verified sports assets across Africa.</p>
+    <a href="#" class="btn btn-light">Get the app &rarr;</a>
+  </div>
+</section>
+
+<div data-site-footer></div>
+<script src="assets/reveal.js"></script>
+<script src="partials.js"></script>
+</body>
+</html>
