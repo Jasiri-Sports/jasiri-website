@@ -23,7 +23,7 @@
       { label: "Women's Rugby", sub: 'Courage and endurance', href: 'clubs.html#womens-rugby' },
     ]},
     { key: 'media', label: 'Media', menu: [
-      { label: 'Blog · The Pulse', sub: 'Stories from the ecosystem', href: 'blog.html' },
+      { label: 'Blog · The Jasiri Journal', sub: 'Stories from the ecosystem', href: 'blog.html' },
       { label: 'Podcast', sub: '#LockedIn stories', href: 'podcast.html' },
     ]},
     { key: 'contact', label: 'Contact', href: 'contact.html' },
