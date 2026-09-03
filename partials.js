@@ -16,11 +16,11 @@
       { label: 'Imara', sub: 'The command center for clubs', href: 'imara.html' },
     ]},
     { key: 'partners', label: 'Partners', href: 'partners.html' },
-    { key: 'clubs', label: 'Clubs', menu: [
-      { label: "Men's Basketball", sub: 'The Jasiri Generals', href: 'clubs.html#mens-basketball' },
-      { label: "Women's Basketball", sub: 'Smart, resilient, explosive', href: 'clubs.html#womens-basketball' },
-      { label: "Men's Rugby", sub: 'Discipline and dominance', href: 'clubs.html#mens-rugby' },
-      { label: "Women's Rugby", sub: 'Courage and endurance', href: 'clubs.html#womens-rugby' },
+    { key: 'clubs', label: 'Our Sports Clubs', menu: [
+      { label: "Men's Basketball", sub: 'The Jasiri Spartans', href: 'clubs.html#mens-basketball' },
+      { label: "Women's Basketball", sub: 'The Jasiri Sirens - Loading', href: 'clubs.html#womens-basketball' },
+      { label: "Men's Rugby", sub: 'The Jasiri Titans - Loading', href: 'clubs.html#mens-rugby' },
+      { label: "Women's Rugby", sub: 'The Jasiri Furies - Loading', href: 'clubs.html#womens-rugby' },
     ]},
     { key: 'media', label: 'Media', menu: [
       { label: 'Blog · The Jasiri Journal', sub: 'Stories from the ecosystem', href: 'blog.html' },
